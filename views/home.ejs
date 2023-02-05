@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%=title%></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>
+        <i class="fa-regular fa-address-book"></i>
+        My Contact List
+    </h1>
+    <div class="container">
+        <ul>
+           <%for(let i of contact_list){%>
+            <li class="contact">
+                <i class="fa-solid fa-user"></i>
+                <p> <%=i.name%></p>
+                <p> <%=i.phone%></p>
+                <div class="delete">
+                    <a href="/delete-contact/?id=<%=i._id %>">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </a>
+                </div>
+            </li>
+          <%}%>
+        </ul>
+       <form action="/add-contact" method="post">
+        <input type="text" placeholder="Enter the Name" name="name" required>
+        <input type="number" placeholder="Enter the Phone Number" name="phone" required>
+        <button type="submit">Add</button>
+       </form>
+    </div>
+    <script src="https://kit.fontawesome.com/fc71e2e1ac.js" crossorigin="anonymous"></script>
+</body>
+</html>
